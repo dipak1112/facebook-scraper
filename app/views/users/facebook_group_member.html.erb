@@ -18,12 +18,12 @@
 	            <td colspan="3"><%= link_to member.name, "#{member.link}", :target => "_blank", :title => "#{member.username}" %></td>            
 	          </tr>
 	          <tr>
-	            <td> <b> Administrator </b> : <%= member.administrator %></td>
+	            <td> <b> Admin </b> : <%= member.administrator %></td>
 	            <td>|</td>
 	            <td><%= member.gender.capitalize if member.gender.present? %></td>
 	          </tr>
 	          <tr>
-	          	<td colspan="3">
+	          	<td colspan="5">
 	          		<b>Update</b>:&nbsp;<%= member.updated_time.strftime("%d-%m-%y %H:%M:%S") %>
 	          	</td>
 	          </tr>

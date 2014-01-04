@@ -19,10 +19,10 @@
 	          <tr>
 	            <td><%= link_to "Unread(#{group.unread.present? ? group.unread : 0})", "#" %></td>
 	            <td>|</td>
-	            <td><%= "Total Member : #{group.total_member}" %></td>
+	            <td><%= "Members : #{group.total_member}" %></td>
 	          </tr>
 	          <tr>
-	          	<td colspan="3">
+	          	<td colspan="5">
 	          		<b>Update</b>:<%= group.updated_time.strftime("%d-%m-%y %H:%M:%S") %>
 	          	</td>
 	          </tr>
