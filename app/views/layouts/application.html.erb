@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>FacebookScraper</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+	  <%= csrf_meta_tags %>
+	  <script>
+	    jQuery(document).ready(function() {    
+	       App.init();
+	    });
+	  </script>
+	</head>
+ <body class="page-header-fixed page-full-width">
+    <%= render :partial => "layouts/top_header" %>
+   
+    
+    <!-- BEGIN CONTAINER -->   
+    <div class="page-container row-fluid" >
+     <%= render :partial => "layouts/sidebar_menu" %>
+    <!-- BEGIN PAGE -->
+     <section id="main">
+                <!-- START Bootstrap Navbar -->
+                <div class="navbar navbar-static-top">
+                    <div class="navbar-inner">
+                        <!-- Breadcrumb -->
+                        <ul class="breadcrumb">
+              <li>
+                <%#=breadcrumbs%>
+              </li>
+              </ul>
+              <!-- END PAGE TITLE & BREADCRUMB-->
+            </div>
+          </div>
+          <!-- END PAGE HEADER-->
+          <!-- BEGIN PAGE CONTENT-->
+          <div class="container-fluid">
+                    <!-- START Row -->
+                    <div class="row-fluid">
+              <% flash.each do |key, message| %>
+                <div id="flash_<%= key %>" class="alert"><%= message %></div>
+              <% end %>
+              <%= yield %>
+            </div>
+          </div>
+          <!-- END PAGE CONTENT-->
+        </div>
+        <!-- END PAGE CONTAINER--> 
+      </div>
+      <!-- END PAGE -->    
+    </div>
+    <!-- END CONTAINER --> 
+    <%= yield :scripts %>   
+    <%= render :partial => "layouts/footer" %>
+    </div>
+    </div>
+
+
+</body>
+</html>

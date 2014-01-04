@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4>Group Members of <%= @group.name %></h4>
+      </div>
+    </div>
+  </div>
+  <% if @group.present? && @group.group_members.present? %>
+
+	  <% @group_members.each_with_index do |member, index| %>
+	    <% if (index+1)%4 == 1 %><div class="row-fluid"><% end %>
+	    <div class="span3 widget">
+	      <section class="body">
+	        <table border="0" class="table" style="margin-bottom: 0px;">
+	          <tr>
+	            <td rowspan=2><%= link_to image_tag(member.picture, :size => "50x50"), my_facebook_profile_path(member.fbid), :title => "#{member.username}" %></td>
+	            <td colspan="3"><%= link_to member.name, "#{member.link}", :target => "_blank", :title => "#{member.username}" %></td>            
+	          </tr>
+	          <tr>
+	            <td> <b> Administrator </b> : <%= member.administrator %></td>
+	            <td>|</td>
+	            <td><%= member.gender.capitalize if member.gender.present? %></td>
+	          </tr>
+	          <tr>
+	          	<td colspan="3">
+	          		<b>Update</b>:&nbsp;<%= member.updated_time.strftime("%d-%m-%y %H:%M:%S") %>
+	          	</td>
+	          </tr>
+	        </table>
+	      </section>
+	    </div>
+	    <% if (index+1)%4 == 0 %></div><% end %>
+	  <% end %>
+	  <%= paginate @group_members, :theme => 'twitter-bootstrap' %>
+	<% else %>
+		<p> No Groups Present yet !</p>  
+  <% end %>
+</div>

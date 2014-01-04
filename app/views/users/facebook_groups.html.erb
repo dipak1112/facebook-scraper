@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4>My Groups (<%= current_user.my_groups.count %>) </h4>
+      </div>
+    </div>
+  </div>
+  <% if @my_groups.present? %>
+	  <% @my_groups.each_with_index do |group, index| %>
+	    <% if (index+1)%4 == 1 %><div class="row-fluid"><% end %>
+	    <div class="span3 widget">
+	      <section class="body">
+	        <table border="0" class="table" style="margin-bottom: 0px;">
+	          <tr>
+	            <td rowspan=2><%= link_to image_tag(group.icon, :size => "40x40"), facebook_group_member_users_url(group.id), :title => "#{group.gid}" %></td>
+	            <td colspan="3"><%= link_to group.name, "https://www.facebook.com/groups/#{group.gid}/", :target => "_blank", :title => "#{group.gid}" %></td>            
+	          </tr>
+	          <tr>
+	            <td><%= link_to "Unread(#{group.unread.present? ? group.unread : 0})", "#" %></td>
+	            <td>|</td>
+	            <td><%= "Total Member : #{group.total_member}" %></td>
+	          </tr>
+	          <tr>
+	          	<td colspan="3">
+	          		<b>Update</b>:<%= group.updated_time.strftime("%d-%m-%y %H:%M:%S") %>
+	          	</td>
+	          </tr>
+	        </table>
+	      </section>
+	    </div>
+	    <% if (index+1)%4 == 0 %></div><% end %>
+	  <% end %>
+	<% else %>
+		<p> No Groups Present yet !</p>  
+  <% end %>
+</div>

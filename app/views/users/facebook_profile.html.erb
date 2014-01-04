@@ -1,0 +1,77 @@
+<div class="span12">
+  <div class="page-header line1">
+    <h4><%= current_user.name %> Profile</h4>
+  </div>
+  <table class="table">
+	  <tbody>
+	    <tr>
+	      <td>Provider</td>
+	      <td><%= current_user.provider %></td>
+	    </tr>
+ 	    <tr>
+	      <td>Nick Name</td>
+	      <td><%= current_user.nickname %></td>
+	    </tr>
+	    <tr>
+	      <td>Full Name</td>
+	      <td><%= current_user.name %></td>
+	    </tr>
+ 	    <tr>
+	      <td>First Name </td>
+	      <td><%= current_user.first_name %></td>
+	    </tr>
+ 	    <tr>
+	      <td>Last Name </td>
+	      <td><%= current_user.last_name %></td>
+	    </tr>
+ 	    <tr>
+	      <td>Username </td>
+	      <td><%= current_user.username %></td>
+	    </tr>
+ 	    <tr>
+	      <td>Gender </td>
+	      <td><%= current_user.gender.capitalize %></td>
+	    </tr>
+ 	    <tr>
+	      <td>UId </td>
+	      <td><%= current_user.uid %></td>
+	    </tr>
+			<tr>
+	      <td>Email </td>
+	      <td><%= current_user.email %></td>
+	    </tr>
+			<tr>
+	      <td>Image</td>
+	      <td><%= image_tag(current_user.image) %></td>
+	    </tr>
+			<tr>
+	      <td>Location</td>
+	      <td><%= current_user.locations %></td>
+	    </tr>
+			<tr>
+	      <td>fburls</td>
+	      <td><%= current_user.fburl.split(" ").last %></td>
+	    </tr>
+
+			<tr>
+	      <td>fbid</td>
+	      <td><%= current_user.fbid %></td>
+	    </tr>
+			<tr>
+	      <td>timezone</td>
+	      <td><%= current_user.timezone %></td>
+	    </tr>
+
+ 			<tr>
+	      <td>Empoyee Detail </td>
+	      <td><%= current_user.employee_info %></td>
+	    </tr>
+
+ 			<tr>
+	      <td>Education Detail </td>
+	      <td><%= current_user.education_history %></td>
+	    </tr>
+
+	  </tbody>
+  </table>
+</div>

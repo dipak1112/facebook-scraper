@@ -1,0 +1,29 @@
+<header id="header">
+  <div class="logo hidden-phone hidden-tablet">
+    <a href="#">FACEBOOK</a>
+  </div>
+  <ul class="toolbar" id="toolbar">
+    <li class="profile">
+      <a href="#" data-toggle="dropdown">
+        <span class="avatar">
+          <%= image_tag(current_user.image) %>
+        </span>
+        <span class="text hidden-phone"><%= current_user.name.capitalize if current_user.present? %><span class="role"><%= current_user.provider %></span></span>
+        <span class="arrow icone-caret-down"></span>
+      </a>
+      <!-- START Dropdown Menu -->
+      <div class="dropdown-menu" role="menu">
+        <header> Your Profile </header>
+        <ul class="body">
+          <li>
+            <a href="#" class="text"></span> Facebook</a>
+            <span class="action show"><%= current_user.name if current_user.present? %></span>
+          </li>
+        </ul>
+        <footer>
+          <a href="<%= signout_path %>" class="text" data-no-turbolink><span class="icon icone-off"></span> Sign Off</a>
+        </footer>
+      </div>
+    </li>
+  </ul>
+</header>

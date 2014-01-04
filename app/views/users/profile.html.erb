@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4><%= @profile.present? ? @profile.name : "My" %> Profile </h4>
+      </div>
+    </div>
+  </div>
+  <% if @profile.present? %>
+  	<table class="table">
+		  <tbody>
+		    <tr>
+		      <td>Full Name</td>
+		      <td><%= @profile.name %></td>
+		    </tr>
+	 	    <tr>
+		      <td>First Name </td>
+		      <td><%= @profile.first_name %></td>
+		    </tr>
+	 	    <tr>
+		      <td>Last Name </td>
+		      <td><%= @profile.last_name %></td>
+		    </tr>
+	 	    <tr>
+		      <td>Username </td>
+		      <td><%= @profile.username %></td>
+		    </tr>
+	 	    <tr>
+		      <td>Gender </td>
+		      <td><%= @profile.gender.capitalize %></td>
+		    </tr>
+				<tr>
+		      <td>fburls</td>
+		      <td><%= @profile.link %></td>
+		    </tr>
+		    <tr>
+		      <td>birthday</td>
+		      <td><%= @profile.birthday %></td>
+		    </tr>
+
+				<tr>
+		      <td>Work</td>
+		      <td><%= @profile.work if @profile.work.present? %></td>
+		    </tr>
+
+	 			<tr>
+		      <td>Education Detail </td>
+		      <td><%= @profile.education.present? ? @profile.education : '' %></td>
+		    </tr>
+
+	 			<tr>
+		      <td>Update Time </td>
+		      <td><%= @profile.update_time %></td>
+		    </tr>
+		  </tbody>
+  	</table>
+	<% else %>
+		<p> No Profile Present yet !</p>  
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>FacebookScraper</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+	  <%= csrf_meta_tags %>
+	</head>
+ <body style="background: url('/assets/1.jpg');width:100%;height:100%;">
+    <div class="page-container row-fluid" >
+      <section id="main">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

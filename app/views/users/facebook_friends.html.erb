@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4>My Friends (<%= @my_friends.present? ? @my_friends.count : 0 %>) </h4>
+      </div>
+    </div>
+  </div>
+  <% @my_friends.each_with_index do |friend, index| %>
+    <% if (index+1)%6 == 1 %><div class="row-fluid"><% end %>
+    <div class="span2 widget">
+      <section class="body">
+        <table border="0" class="table" style="margin-bottom: 0px;">
+          <tr>
+            <td rowspan=2>
+              <%= link_to image_tag(friend.picture_url), my_facebook_profile_path(friend.fbid) %>
+            </td>
+            <td>
+              <%= link_to friend.name, "https://www.facebook.com/#{friend.username}", :target => "_blank", :title => "#{friend.username}" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= friend.total_friend %> Friends
+            </td>
+          </tr>
+          </table>
+
+      </section>
+    </div>
+    <% if (index+1)%6 == 0 %></div><% end %>
+  <% end %>
+</div>
