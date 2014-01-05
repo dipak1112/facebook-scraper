@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 	has_many :my_friends, :dependent => :destroy
 	has_many :my_groups, :dependent => :destroy
+	has_many :albums, :dependent => :destroy
 	
 	accepts_nested_attributes_for :my_friends,	:allow_destroy => true
 	accepts_nested_attributes_for :my_groups,	:allow_destroy => true

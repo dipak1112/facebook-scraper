@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104110358) do
+ActiveRecord::Schema.define(version: 20140105073442) do
+
+  create_table "album_photos", force: true do |t|
+    t.integer  "album_id"
+    t.string   "name"
+    t.string   "picture"
+    t.string   "link"
+    t.string   "icon"
+    t.text     "place"
+    t.datetime "created_time"
+    t.text     "tags"
+    t.text     "comments"
+    t.text     "likes"
+    t.string   "alphotoid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "albums", force: true do |t|
+    t.string   "albid"
+    t.string   "name"
+    t.string   "link"
+    t.string   "cover_photo"
+    t.integer  "photo_count",      default: 0
+    t.string   "upload_type"
+    t.integer  "user_id"
+    t.datetime "alb_created_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "group_members", force: true do |t|
     t.string   "name"

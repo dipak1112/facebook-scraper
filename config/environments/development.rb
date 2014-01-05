@@ -26,6 +26,6 @@ FacebookScraper::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-  ENV['FACEBOOK_APP_ID'] = '692633414102851'
-  ENV['FACEBOOK_SECRET'] = '6f96c4d8b6d10c4e31d546ca27ad01bc'
+  ENV['FACEBOOK_APP_ID'] = '1448669612021722'
+  ENV['FACEBOOK_SECRET'] = '795ff4469f0ef31d3b742041f5cb75f5'
 end

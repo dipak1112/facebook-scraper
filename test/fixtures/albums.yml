@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  albid: MyString
+  name: MyString
+  link: MyString
+  cover_photo: MyString
+  photo_count: 1
+  upload_type: MyString
+  user_id: 1
+
+two:
+  albid: MyString
+  name: MyString
+  link: MyString
+  cover_photo: MyString
+  photo_count: 1
+  upload_type: MyString
+  user_id: 1

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  album_id: 1
+  name: MyString
+  picture: MyString
+  link: MyString
+  icon: MyString
+  place: MyText
+  created_time: 2014-01-05 13:04:42
+  tags: MyText
+  comments: MyText
+  likes: MyText
+
+two:
+  album_id: 1
+  name: MyString
+  picture: MyString
+  link: MyString
+  icon: MyString
+  place: MyText
+  created_time: 2014-01-05 13:04:42
+  tags: MyText
+  comments: MyText
+  likes: MyText

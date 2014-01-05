@@ -10,8 +10,9 @@ class GetProfile
 				user.education_history = profile["education"].present? ? profile["education"] : ""
 				user.save if profile["work"].first.present?
 			end
-			Resque.enqueue(FetchGroup, user_id)
-			Resque.enqueue(FetchFriend, user.id)
+			Resque.enqueue(FetchFriend, user.id) ## For Fetching Friend
+			Resque.enqueue(StoreAlbum, user.id)  ## For Fetching and Storing Album
+			Resque.enqueue(FetchGroup, user_id) ## Fetching Groups and Store into DB
 		rescue
 		end
 	end
