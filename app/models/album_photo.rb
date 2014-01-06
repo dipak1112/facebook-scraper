@@ -1,8 +1,6 @@
 class AlbumPhoto < ActiveRecord::Base
 	belongs_to :album
-
-	serialize :tags
-	serialize :comments
-	serialize :likes
-
+	has_many :tags, :as => :mixable
+	has_many :likes, :as => :mixable
+	has_many :comments, :as => :mixable
 end
