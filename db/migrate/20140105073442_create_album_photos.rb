@@ -8,11 +8,7 @@ class CreateAlbumPhotos < ActiveRecord::Migration
       t.string :icon
       t.text :place
       t.datetime :created_time
-      t.text :tags
-      t.text :comments
-      t.text :likes
       t.string :alphotoid
-
       t.timestamps
     end
   end
