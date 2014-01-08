@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4>My Photos ( <%= @my_photo.count %> )</h4>
+      </div>
+    </div>
+  </div>
+  <% if @my_photo.present? %>
+  	<% @my_photo.each_with_index do |photo, index| %>
+	    <% if (index+1)%4 == 1 %><div class="row-fluid"><% end %>
+	    <div class="span3 widget">
+	      <section class="body">
+	      	<table border="0" class="table" style="margin-bottom: 0px;">
+          <tr>
+            <td rowspan=2>
+              <%= link_to image_tag(photo.picture, :size => "50x50"), photo.picture, :class => "group1" %>
+            </td>
+            <td>
+              <%= photo.name.present? ? photo.name : "Undefine" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Created Time : <%= photo.created_time.strftime("%d-%m-%Y %H:%M:%S") %> 
+            </td>
+          </tr>
+          </table>
+	      </section>
+	    </div>
+ 	    <% if (index+1)%4 == 0 %></div><% end %>
+	  <% end %>
+	<% else %>
+		<p> No Photos Present yet !</p>  
+  <% end %>
+</div>

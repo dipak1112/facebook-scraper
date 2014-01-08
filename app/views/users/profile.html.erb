@@ -31,7 +31,7 @@
 		    </tr>
 				<tr>
 		      <td>fburls</td>
-		      <td><%= @profile.link %></td>
+		      <td><%= link_to @profile.link, @profile.link, :target => "_blank" %></td>
 		    </tr>
 		    <tr>
 		      <td>birthday</td>
@@ -40,12 +40,39 @@
 
 				<tr>
 		      <td>Work</td>
-		      <td><%= @profile.work if @profile.work.present? %></td>
+		      <td>
+		      	<% if @profile.work.present? %>
+		      	<% @profile.work.each do |w|  %>
+		      		<p><%= w["employer"]["name"]%></p>
+		      	<% end %>
+		      	<% end %>
+		      </td>
 		    </tr>
 
 	 			<tr>
 		      <td>Education Detail </td>
-		      <td><%= @profile.education.present? ? @profile.education : '' %></td>
+		      <td>
+		      	<% if @profile.education.present? %>
+		      		<% @profile.education.each do |e| %>
+		      			<p> 
+		      				<b> School </b>: <%= e["school"]["name"] %>, 
+		      				<% if e["type"] == "High School" || e["type"] == "College"  %>
+		      					<% if e["year"].present? %>
+			      					<b> year : </b> <%= e["year"]["name"]  %>
+			      				<% end %>
+		      				<% end %>
+		      				<% if e["type"] == "College" %>
+		      					<% if e["classes"].present? %>
+		      						<b> Class: </b>
+		      						<% e["classes"].each do |c| %> 
+		      							<%= c["name"] %>
+		      						<% end %>
+		      					<% end %>
+		      				<% end %>
+		      			</p> 
+		      		<% end %>
+		      	<% end %>
+		      </td>
 		    </tr>
 
 	 			<tr>

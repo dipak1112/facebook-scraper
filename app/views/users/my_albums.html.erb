@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4>My Albums (<%= @my_albums.count if @my_albums.present? %>) </h4>
+      </div>
+    </div>
+  </div>
+  <% if @my_albums.present? %>
+	  <% @my_albums.each_with_index do |album, index| %>
+	    <% if (index+1)%4 == 1 %><div class="row-fluid"><% end %>
+	    <div class="span3 widget">
+	      <section class="body">
+	        <table border="0" class="table" style="margin-bottom: 0px;">
+	          <tr>
+	            <td colspan="5">
+	            	<%= link_to album.name, my_album_photos_path(album), :title => "#{album.name}" %>
+	            </td>
+	          </tr>
+	          <tr>
+	          	<td>Photos : <%= album.photo_count %></td>            
+	          	<td>|</td>
+	            <td><%= "Type : #{album.upload_type}" %></td>
+	          </tr>
+	        </table>
+	      </section>
+	    </div>
+ 	    <% if (index+1)%4 == 0 %></div><% end %>
+	  <% end %>
+	<% else %>
+		<p> No Albums Present yet !</p>  
+  <% end %>
+</div>

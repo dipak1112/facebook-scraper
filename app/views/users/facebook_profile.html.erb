@@ -64,7 +64,11 @@
 
  			<tr>
 	      <td>Empoyee Detail </td>
-	      <td><%= current_user.employee_info %></td>
+	      <td>
+	      	<% if current_user.employee_info.present? %>
+	      		<%= current_user.employee_info["employer"]["name"] %>
+	      	<% end %>
+	      </td>
 	    </tr>
 
  			<tr>
