@@ -3,7 +3,7 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.string   :albid
       t.string   :name
-      t.string   :link
+      t.text   :link
       t.string   :cover_photo
       t.integer  :photo_count, :default => 0
       t.string   :upload_type

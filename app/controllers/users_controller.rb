@@ -19,5 +19,15 @@ class UsersController < ApplicationController
 		 @profile = Profile.find_by_fbid(params[:fbid])
 	end
 
+	def my_albums
+		@my_albums = current_user.albums
+	end
+
+	def my_album_photos
+		@my_album = current_user.albums.find(params[:album_id])
+		@my_photo = @my_album.album_photos
+	end
+
+
 
 end

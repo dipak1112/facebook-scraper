@@ -7,7 +7,6 @@ class CreateComments < ActiveRecord::Migration
       t.string :message
       t.datetime :created_time
       t.integer :like_count
-      t.integer :album_photo_id
       t.integer   :mixable_id
       t.string    :mixable_type
       t.timestamps
