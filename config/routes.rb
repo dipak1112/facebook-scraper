@@ -22,6 +22,9 @@ FacebookScraper::Application.routes.draw do
     collection do 
       get 'wall_post'
       post 'send_wall_post'
+      get 'link_post'
+      post 'send_link_post'
+
     end
 
   end
