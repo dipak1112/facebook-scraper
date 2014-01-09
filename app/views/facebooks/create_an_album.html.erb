@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4> Create Album </h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <%= form_tag({:controller => "facebooks", :action => "send_album_in_facebook"},  {:method => "POST", :class => "span12 widget shadowed dark form-horizontal bordered"}) do |f| %>
+      <header><h4 class="title">Create Album</h4></header>
+      <section class="body">
+        <div class="body-inner">
+          <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">
+              <%= text_field_tag "name", nil, :required => true, :class => "span8", :placeholder => "Enter Name Here.." %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Message</label>
+            <div class="controls">
+              <%= text_area_tag "message", nil, :required => true, :class => "span8", :placeholder => "Enter Your Message Here.." %>
+            </div>
+          </div>
+
+
+          <div class="form-actions">
+            <%= submit_tag "Send", :name => nil, :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</div>

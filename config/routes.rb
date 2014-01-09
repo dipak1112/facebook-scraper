@@ -20,13 +20,17 @@ FacebookScraper::Application.routes.draw do
   
   resources :facebooks, :only => [:index] do
     collection do 
-      get 'wall_post'
-      post 'send_wall_post'
-      get 'link_post'
-      post 'send_link_post'
-
+      get   'wall_post'
+      post  'send_wall_post'
+      get   'link_post'
+      post  'send_link_post'
+      get   'create_event'
+      post  'send_created_event'
+      get   'create_an_album'
+      post  'send_album_in_facebook'
+      get   'photo_in_album'
+      post  'send_photo_in_album'
     end
-
   end
   
   match 'auth/failure', to: redirect('/'), via: :get
