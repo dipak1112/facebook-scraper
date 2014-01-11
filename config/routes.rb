@@ -32,8 +32,9 @@ FacebookScraper::Application.routes.draw do
       post  'send_photo_in_album'
     end
   end
-  
+
   match 'auth/failure', to: redirect('/'), via: :get
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :delete]
 
+  match '/places', to: 'places#near_by_place', as: 'near_by_place', via: [:get, :post]
 end

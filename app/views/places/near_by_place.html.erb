@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header line1">
+        <h4> Search Places </h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+  	<%= form_tag({:controller => "places", :action => "near_by_place"},  {:method => "POST", :class => "span12 widget shadowed dark form-horizontal bordered"}) do |f| %>
+      <header><h4 class="title">Search Place </h4></header>
+      <section class="body">
+        <div class="body-inner">
+          <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">
+              <%= text_field_tag "place", nil, :required => true, :class => "span8", :placeholder => "Search Place Name.." %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">City</label>
+            <div class="controls">
+              <%= text_field_tag "city", nil, :required => true, :class => "span8", :placeholder => "Enter City Name .." %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </section>
+    <% end %>
+  </div>
+
+  <div class="row-fluid">
+  	<b> Place : </b> <%= params["place"] %>
+  	<b> City : </b> <%= params["city"] %>
+  	<br>
+  	<% if @places.present? %>
+  		<header><h4 class="title">Search Place </h4></header>
+      <section class="body">
+      	<% @places.each do |place| %>
+      		<div class="control-group">
+      			<p> <b>Name : </b><%= place.raw_attributes["name"] %></p>
+      			<p> <b>Category : </b><%= place.raw_attributes["category"] %></p>
+      			<p> <b> Category Type :  </b>
+      				<% place.raw_attributes["category_list"].each do |clist| %> 
+      					<%= clist["name"] %>,
+      				<% end %>
+      			</p>
+      			<p><b> Location : </b>
+      				<% loc = place.raw_attributes["location"] %>
+      				<% if loc["street"].present? %> 
+      					<%= loc["street"] %>, 
+      				<% end %>
+      				<% if loc["city"].present? %> 
+      					<%= loc["city"] %>,
+      				<% end %>
+      				<% if loc["state"].present? %> 
+      					<%= loc["state"] %>,
+      				<% end %>
+      				<% if loc["country"].present? %> 
+      					<%= loc["country"] %>,
+      				<% end %>
+      				<% if loc["zip"].present? %> 
+      					<%= loc["zip"] %>,
+      				<% end %>
+      				<%= loc["latitude"] %>,
+      				<%= loc["longitude"] %>
+      			</p>
+      		</div>
+      		<hr>
+      	<% end %>
+
+      </section>
+  	<% else %>
+  		No Place Found!
+  	<% end %>
+  </div>
+
+</div>
